@@ -1,6 +1,6 @@
-<p align="center">
-    <h1 align="center">MOONWATCH-COMPONENT.GIT</h1>
-</p>
+[<img src="LLM" align="right" width="25%" padding-right="350">]()
+
+# `MOONWATCH-COMPONENT`
 ![alt text](https://github.com/MashaAUT/MoonWatch-Component/blob/master/manual-report/.09876545678.png)
 <p align="center">
 	<img src="https://img.shields.io/github/license/MashaAUT/MoonWatch-Component.git?style=flat&logo=opensourceinitiative&logoColor=white&color=0b2b5c" alt="license">
