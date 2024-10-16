@@ -1,7 +1,7 @@
 [<img src="LLM" align="right" width="25%" padding-right="350">]()
 
 # `MOONWATCH-COMPONENT`
-![alt text](https://github.com/MashaAUT/MoonWatch-Component/blob/master/manual-report/.09876545678.png)
+
 <p align="center">
 	<img src="https://img.shields.io/github/license/MashaAUT/MoonWatch-Component.git?style=flat&logo=opensourceinitiative&logoColor=white&color=0b2b5c" alt="license">
 	<img src="https://img.shields.io/github/last-commit/MashaAUT/MoonWatch-Component.git?style=flat&logo=git&logoColor=white&color=0b2b5c" alt="last-commit">
@@ -275,3 +275,6 @@ This project is protected under the [SELECT-A-LICENSE](https://choosealicense.co
 - List any resources, contributors, inspiration, etc. here.
 
 ---
+
+![alt text](https://github.com/MashaAUT/MoonWatch-Component/blob/master/manual-report/.09876545678.png)
+
