@@ -10,6 +10,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
     "mocha": "^10.7.3",
     "nightwatch": "^3.8.0"
   }
