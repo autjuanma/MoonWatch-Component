@@ -27,10 +27,10 @@ module.exports = {
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
   plugins: [],
-  
+
   // See https://nightwatchjs.org/guide/concepts/test-globals.html
   globals_path: '',
-  
+
   webdriver: {},
 
   test_workers: {
@@ -51,12 +51,12 @@ module.exports = {
       desiredCapabilities: {
         browserName: 'chrome'
       },
-      
+
       webdriver: {
         start_process: true,
         server_path: ''
       },
-      
+
       test_runner: {
         // set mocha as the runner
         // For more info on using Mocha with Nightwatch, visit:
@@ -64,13 +64,13 @@ module.exports = {
         type: 'mocha',
 
         // define mocha specific options
-        options : {
+        options: {
           ui: 'bdd',
           reporter: 'list'
         }
       }
     },
-    
+
     chrome: {
       desiredCapabilities: {
         browserName: 'chrome',
@@ -93,7 +93,7 @@ module.exports = {
         ]
       }
     },
-    
+
     ////////////////////////////////////////////////////////////////////////////////////////
     // Configuration for using remote Selenium service or a cloud-based testing provider.  |
     //                                                                                     |
@@ -126,7 +126,7 @@ module.exports = {
         start_process: false
       }
     },
-    
+
     'remote.chrome': {
       extends: 'remote',
       desiredCapabilities: {
@@ -136,7 +136,98 @@ module.exports = {
         }
       }
     },
-    
+
   },
-  
+
+
+  //////////////////////////////////////////////////////////////////////////////////
+  // Configuration for when using the browserstack.com cloud service               |
+  //                                                                               |
+  // Please set the username and access key by setting the environment variables:  |
+  // - BS_USERNAME                                                       |
+  // - BS_ACCESS_KEY                                                     |
+  // .env files are supported                                                      |
+  //////////////////////////////////////////////////////////////////////////////////
+  browserstack: {
+    selenium: {
+      host: 'hub.browserstack.com',
+      port: 443
+    },
+    // More info on configuring capabilities can be found on:
+    // https://www.browserstack.com/automate/capabilities?tag=selenium-4
+    desiredCapabilities: {
+      'bstack:options': {
+        userName: '${BS_USERNAME}',
+        accessKey: '${BS_ACCESS_KEY}',
+      }
+    },
+
+    disable_error_log: true,
+    webdriver: {
+      timeout_options: {
+        timeout: 15000,
+        retry_attempts: 3
+      },
+      keep_alive: true,
+      start_process: false
+    }
+  },
+
+  'browserstack.local': {
+    extends: 'browserstack',
+    desiredCapabilities: {
+      'browserstack.local': true
+    }
+  },
+
+  'browserstack.chrome': {
+    extends: 'browserstack',
+    desiredCapabilities: {
+      browserName: 'chrome',
+      chromeOptions: {
+        w3c: true
+      }
+    }
+  },
+
+  'browserstack.firefox': {
+    extends: 'browserstack',
+    desiredCapabilities: {
+      browserName: 'firefox'
+    }
+  },
+
+  'browserstack.ie': {
+    extends: 'browserstack',
+    desiredCapabilities: {
+      browserName: 'internet explorer',
+      browserVersion: '11.0'
+    }
+  },
+
+  'browserstack.safari': {
+    extends: 'browserstack',
+    desiredCapabilities: {
+      browserName: 'safari'
+    }
+  },
+
+  'browserstack.local_chrome': {
+    extends: 'browserstack.local',
+    desiredCapabilities: {
+      browserName: 'chrome'
+    }
+  },
+
+  'browserstack.local_firefox': {
+    extends: 'browserstack.local',
+    desiredCapabilities: {
+      browserName: 'firefox'
+    }
+  },
+
+
+
+
+
 };
