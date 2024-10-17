@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "npx nightwatch"
+    "test": "npx nightwatch nightwatch"  
   },
   "keywords": [],
   "author": "",

@@ -3,7 +3,7 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - master  # Change this to your default branch if different
+      - master  # Keep this as your default branch
 
 jobs:
   test:
@@ -22,7 +22,7 @@ jobs:
         run: npm install
 
       - name: Run Nightwatch tests
-        run: npm test  # Adjust if your test script has a different name
+        run: npx nightwatch nightwatch  # Specify the relative path to your tests
 
   deploy:
     runs-on: ubuntu-latest
