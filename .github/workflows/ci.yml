@@ -46,6 +46,32 @@ jobs:
         run: npx nightwatch nightwatch
         continue-on-error: true
 
+      - name: Display structure of log files
+        if: always()
+        run: ls -R
+        working-directory: logs/
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: Logs
+          path: logs/
+          retention-days: 1
+
+      - name: Display structure of downloaded files
+        if: always()
+        run: ls -R
+        working-directory: screens/
+
+      - name: Upload screenshots
+        if: always()
+        uses: actions/upload-artifact@v2.2.0
+        with:
+          name: Screenshots
+          path: screens/
+          retention-days: 1
+
       - name: Codecov analysis
         uses: codecov/codecov-action@v1
         env:
