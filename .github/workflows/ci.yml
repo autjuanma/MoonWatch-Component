@@ -46,10 +46,23 @@ jobs:
         run: npx nightwatch nightwatch
         continue-on-error: true
 
+      - name: Ensure logs directory exists
+        run: |
+          if [ ! -d "logs" ]; then
+            echo "Logs directory does not exist. Creating it..."
+            mkdir logs
+          else
+            echo "Logs directory already exists."
+          fi
+
       - name: Display structure of log files
         if: always()
-        run: ls -R
-        working-directory: logs/
+        run: |
+          if [ -d "logs" ]; then
+            ls -R logs/
+          else
+            echo "Logs directory does not exist."
+          fi
 
       - name: Upload logs
         if: always()
@@ -59,10 +72,23 @@ jobs:
           path: logs/
           retention-days: 1
 
+      - name: Ensure screenshots directory exists
+        run: |
+          if [ ! -d "screens" ]; then
+            echo "Screenshots directory does not exist. Creating it..."
+            mkdir screens
+          else
+            echo "Screenshots directory already exists."
+          fi
+
       - name: Display structure of downloaded files
         if: always()
-        run: ls -R
-        working-directory: screens/
+        run: |
+          if [ -d "screens" ]; then
+            ls -R screens/
+          else
+            echo "Screenshots directory does not exist."
+          fi
 
       - name: Upload screenshots
         if: always()
