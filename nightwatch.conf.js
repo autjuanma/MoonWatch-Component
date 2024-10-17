@@ -11,10 +11,25 @@
 //             __/ |
 //            |___/
 
+// ._____.___ .______  .________.___.__  .______  
+// :         |:      \ |    ___/:   |  \ :      \ 
+// |   \  /  ||   .   ||___    \|   :   ||   .   |
+// |   |\/   ||   :   ||       /|   .   ||   :   |
+// |___| |   ||___|   ||__:___/ |___|   ||___|   |
+//       |___|    |___|   :         |___|    |___|
+
+
 module.exports = {
   // An array of folders (excluding subfolders) where your tests are located;
   // if this is not specified, the test source must be passed as the second argument to the test runner.
-  src_folders: ['examples'],
+  src_folders: ['nightwatch/examples'],
+
+  api_testing: {
+    start_session: false,
+    webdriver: {
+      start_process: false,
+    }
+  },
 
   // See https://nightwatchjs.org/guide/concepts/page-object-model.html
   page_objects_path: ['nightwatch/page-objects'],
@@ -26,7 +41,8 @@ module.exports = {
   custom_assertions_path: ['nightwatch/custom-assertions'],
 
   // See https://nightwatchjs.org/guide/extending-nightwatch/adding-plugins.html
-  plugins: [],
+
+  plugins: ['@nightwatch/apitesting'],
 
   // See https://nightwatchjs.org/guide/concepts/test-globals.html
   globals_path: '',
